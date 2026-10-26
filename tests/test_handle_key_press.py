@@ -19,3 +19,15 @@ def test_plus_stores_operator_copies_screen_to_first_number_and_sets_flag():
     assert state == CalculatorState(
         screen=123, first_number=123, op="+", start_second_number=True
     )
+
+
+def test_digit_after_operator_replaces_screen_and_clears_flag():
+    state = CalculatorState(
+        screen=123, first_number=123, op="+", start_second_number=True
+    )
+
+    handle_key_press(state, "4")
+
+    assert state == CalculatorState(
+        screen=4, first_number=123, op="+", start_second_number=False
+    )
