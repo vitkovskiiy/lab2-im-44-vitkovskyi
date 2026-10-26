@@ -1,0 +1,10 @@
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.venv/
+venv/
+
+# локальні інструменти агента (TDD-скіл), не частина лабораторної
+.agents/
+.claude/
+skills-lock.json
