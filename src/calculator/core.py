@@ -19,4 +19,8 @@ def handle_key_press(state: CalculatorState, key: str) -> None:
         state.start_second_number = True
         state.first_number = state.screen
     else:
-        state.screen = state.screen * 10 + int(key)
+        if state.start_second_number:
+            state.screen = int(key)
+        else:
+            state.screen = state.screen * 10 + int(key)
+        state.start_second_number = False
