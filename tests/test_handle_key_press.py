@@ -43,3 +43,15 @@ def test_equals_with_plus_shows_sum_of_first_number_and_screen():
     assert state == CalculatorState(
         screen=579, first_number=123, op="+", start_second_number=False
     )
+
+
+def test_equals_with_minus_subtracts_screen_from_first_number():
+    state = CalculatorState(
+        screen=23, first_number=123, op="-", start_second_number=False
+    )
+
+    handle_key_press(state, "=")
+
+    assert state == CalculatorState(
+        screen=100, first_number=123, op="-", start_second_number=False
+    )
