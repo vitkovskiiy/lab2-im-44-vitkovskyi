@@ -14,4 +14,9 @@ def parse(text: str) -> list[str]:
 
 
 def handle_key_press(state: CalculatorState, key: str) -> None:
-    state.screen = state.screen * 10 + int(key)
+    if key == "+":
+        state.op = key
+        state.start_second_number = True
+        state.first_number = state.screen
+    else:
+        state.screen = state.screen * 10 + int(key)
