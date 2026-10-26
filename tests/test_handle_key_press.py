@@ -31,3 +31,15 @@ def test_digit_after_operator_replaces_screen_and_clears_flag():
     assert state == CalculatorState(
         screen=4, first_number=123, op="+", start_second_number=False
     )
+
+
+def test_equals_with_plus_shows_sum_of_first_number_and_screen():
+    state = CalculatorState(
+        screen=456, first_number=123, op="+", start_second_number=False
+    )
+
+    handle_key_press(state, "=")
+
+    assert state == CalculatorState(
+        screen=579, first_number=123, op="+", start_second_number=False
+    )
