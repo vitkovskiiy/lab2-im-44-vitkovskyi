@@ -67,3 +67,15 @@ def test_equals_with_multiply_shows_product_of_first_number_and_screen():
     assert state == CalculatorState(
         screen=220, first_number=10, op="*", start_second_number=False
     )
+
+
+def test_equals_with_divide_shows_quotient_rounded_down():
+    state = CalculatorState(
+        screen=3, first_number=100, op="/", start_second_number=False
+    )
+
+    handle_key_press(state, "=")
+
+    assert state == CalculatorState(
+        screen=33, first_number=100, op="/", start_second_number=False
+    )
