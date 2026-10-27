@@ -1,3 +1,5 @@
+import pytest
+
 from calculator.core import CalculatorState, handle_key_press
 
 
@@ -18,6 +20,17 @@ def test_plus_stores_operator_copies_screen_to_first_number_and_sets_flag():
 
     assert state == CalculatorState(
         screen=123, first_number=123, op="+", start_second_number=True
+    )
+
+
+@pytest.mark.parametrize("operator", ["-", "*", "/"])
+def test_minus_multiply_divide_store_operator_copy_screen_and_set_flag(operator):
+    state = CalculatorState(screen=123)
+
+    handle_key_press(state, operator)
+
+    assert state == CalculatorState(
+        screen=123, first_number=123, op=operator, start_second_number=True
     )
 
 
