@@ -21,6 +21,8 @@ def handle_key_press(state: CalculatorState, key: str) -> None:
         state.start_second_number = True
         state.first_number = state.screen
     elif key == "=":
+        if state.op is None:
+            raise ValueError("'=' pressed before an operator")
         if state.op == "-":
             state.screen = state.first_number - state.screen
         elif state.op == "*":
