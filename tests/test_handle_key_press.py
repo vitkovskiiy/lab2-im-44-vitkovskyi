@@ -100,3 +100,10 @@ def test_unknown_key_raises_value_error(key):
 
     with pytest.raises(ValueError):
         handle_key_press(state, key)
+
+
+def test_equals_without_operator_raises_value_error():
+    state = CalculatorState(screen=5)
+
+    with pytest.raises(ValueError):
+        handle_key_press(state, "=")
