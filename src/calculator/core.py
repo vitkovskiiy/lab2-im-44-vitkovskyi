@@ -14,7 +14,7 @@ def parse(text: str) -> list[str]:
 
 
 def handle_key_press(state: CalculatorState, key: str) -> None:
-    if key == "+":
+    if key in ("+", "-", "*", "/"):
         state.op = key
         state.start_second_number = True
         state.first_number = state.screen
