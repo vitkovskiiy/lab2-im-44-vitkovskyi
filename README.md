@@ -23,7 +23,7 @@ pip install -r requirements.txt
 ## Тести
 
 ```bash
-pytest
+python -m pytest
 ```
 
 ## Приклад запуску
