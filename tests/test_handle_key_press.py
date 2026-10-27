@@ -92,3 +92,11 @@ def test_equals_with_divide_shows_quotient_rounded_down():
     assert state == CalculatorState(
         screen=33, first_number=100, op="/", start_second_number=False
     )
+
+
+@pytest.mark.parametrize("key", ["x", "%", "12", "-5", " 7"])
+def test_unknown_key_raises_value_error(key):
+    state = CalculatorState(screen=3)
+
+    with pytest.raises(ValueError):
+        handle_key_press(state, key)
