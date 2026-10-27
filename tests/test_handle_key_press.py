@@ -55,3 +55,15 @@ def test_equals_with_minus_subtracts_screen_from_first_number():
     assert state == CalculatorState(
         screen=100, first_number=123, op="-", start_second_number=False
     )
+
+
+def test_equals_with_multiply_shows_product_of_first_number_and_screen():
+    state = CalculatorState(
+        screen=22, first_number=10, op="*", start_second_number=False
+    )
+
+    handle_key_press(state, "=")
+
+    assert state == CalculatorState(
+        screen=220, first_number=10, op="*", start_second_number=False
+    )
