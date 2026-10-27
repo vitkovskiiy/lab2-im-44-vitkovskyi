@@ -21,6 +21,8 @@ def handle_key_press(state: CalculatorState, key: str) -> None:
     elif key == "=":
         if state.op == "-":
             state.screen = state.first_number - state.screen
+        elif state.op == "*":
+            state.screen = state.first_number * state.screen
         else:
             state.screen = state.first_number + state.screen
     else:
