@@ -41,3 +41,10 @@ def handle_key_press(state: CalculatorState, key: str) -> None:
         state.start_second_number = False
     else:
         raise ValueError(f"unknown key: {key!r}")
+
+
+def calculate(keys: list[str]) -> int:
+    state = CalculatorState()
+    for key in keys:
+        handle_key_press(state, key)
+    return state.screen
