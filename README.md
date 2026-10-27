@@ -1,8 +1,8 @@
 # Лабораторна робота №2 — Калькулятор
 
-- Студент: [FULL NAME]
-- Група: [GROUP]
-- Pull request: [PR URL]
+- Студент: Іван Вітковський
+- Група: ІМ-44
+- Pull request: https://github.com/vitkovskiiy/lab2-im-44-vitkovskyi/pull/1
 - Демо-відео (необов'язково): [DEMO VIDEO URL]
 
 Спрощений калькулятор, що обробляє натискання клавіш над цілими числами.
