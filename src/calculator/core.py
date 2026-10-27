@@ -1,5 +1,7 @@
 from dataclasses import dataclass
 
+DIGITS = ("0", "1", "2", "3", "4", "5", "6", "7", "8", "9")
+
 
 @dataclass
 class CalculatorState:
@@ -27,9 +29,11 @@ def handle_key_press(state: CalculatorState, key: str) -> None:
             state.screen = state.first_number // state.screen
         else:
             state.screen = state.first_number + state.screen
-    else:
+    elif key in DIGITS:
         if state.start_second_number:
             state.screen = int(key)
         else:
             state.screen = state.screen * 10 + int(key)
         state.start_second_number = False
+    else:
+        raise ValueError(f"unknown key: {key!r}")
