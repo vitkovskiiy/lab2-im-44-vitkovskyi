@@ -116,3 +116,33 @@ def test_second_operator_raises_value_error():
 
     with pytest.raises(ValueError):
         handle_key_press(state, "-")
+
+
+def test_fresh_state_shows_zero_on_screen():
+    state = CalculatorState()
+
+    assert state == CalculatorState(
+        screen=0, first_number=0, op=None, start_second_number=False
+    )
+
+
+def test_digit_is_appended_as_lowest_digit_of_screen():
+    state = CalculatorState(screen=12)
+
+    handle_key_press(state, "3")
+
+    assert state == CalculatorState(
+        screen=123, first_number=0, op=None, start_second_number=False
+    )
+
+
+def test_digit_typed_into_second_operand_is_appended_after_flag_cleared():
+    state = CalculatorState(
+        screen=4, first_number=123, op="+", start_second_number=False
+    )
+
+    handle_key_press(state, "5")
+
+    assert state == CalculatorState(
+        screen=45, first_number=123, op="+", start_second_number=False
+    )
