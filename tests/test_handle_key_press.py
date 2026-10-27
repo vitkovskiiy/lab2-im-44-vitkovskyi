@@ -107,3 +107,12 @@ def test_equals_without_operator_raises_value_error():
 
     with pytest.raises(ValueError):
         handle_key_press(state, "=")
+
+
+def test_second_operator_raises_value_error():
+    state = CalculatorState(
+        screen=123, first_number=123, op="+", start_second_number=True
+    )
+
+    with pytest.raises(ValueError):
+        handle_key_press(state, "-")
